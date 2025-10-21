@@ -3,9 +3,19 @@ import pandas as pd
 from openai import OpenAI
 import json
 import os
+import sys
+from dotenv import load_dotenv
 
+load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key = api_key)
+
+if len(sys.argv) < 2:
+    print("Usage: python main.py <path_to_pdf>")
+    sys.exit(1)
+else:
+    pdf_path = sys.argv[1]
+
 
 def extract_text_from_pdf(pdf_path):
     """Extract text from all pages of the PDF."""
