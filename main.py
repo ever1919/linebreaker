@@ -44,6 +44,8 @@ def generate_sections(cv_text, section_name):
     - Assume Graphik 9 font style.
 
     Section details:
+    -NAME: The name of the candidate. 
+    -TOWER: Which tower they belong to. It can only be one of three: SAP ARIBA, SAP S/4HANA or CONTROL TOWER
     - PROFILE OVERVIEW: One concise paragraph summarizing the candidate’s experience, skills, expertise, and key achievements. No names or languages.
     - PROFESSIONAL EDUCATION: List only degree names, separated by line breaks. Do NOT repeat information. Do NOT mention High School information.
     - INDUSTRY EXPERIENCE: Line-separated list of industries mapped to Accenture taxonomy:
@@ -105,6 +107,8 @@ def generate_one_pager(cv_path, output_path="one_pager_summary.xlsx"):
     cv_text = extract_text_from_pdf(cv_path)
 
     sections = [
+        "NAME",
+        "TOWER",
         "PROFILE OVERVIEW",
         "PROFESSIONAL EDUCATION",
         "INDUSTRY EXPERIENCE",

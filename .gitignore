@@ -1,5 +1,5 @@
 .env
-data/
+data/input/
 linebreaker/
 __pycache__/
 .ipynb_checkpoints/
