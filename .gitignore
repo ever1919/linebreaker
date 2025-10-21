@@ -4,3 +4,4 @@ linebreaker/
 __pycache__/
 .ipynb_checkpoints/
 venv/
+/cv_one_pager_agent.ipynb
