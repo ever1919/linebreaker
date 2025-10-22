@@ -3,4 +3,4 @@ pdfplumber
 pandas
 openpyxl
 dotenv
-
+streamlit
