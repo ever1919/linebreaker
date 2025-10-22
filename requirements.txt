@@ -2,3 +2,5 @@ openai
 pdfplumber
 pandas
 openpyxl
+dotenv
+
