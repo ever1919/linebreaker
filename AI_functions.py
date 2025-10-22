@@ -38,8 +38,12 @@ def generate_sections(cv_text, section_name):
     - Assume Graphik 9 font style.
 
     Section details:
-    -NAME: The name of the candidate. 
-    -TOWER: Which tower they belong to. It can only be one of three: SAP ARIBA, SAP S/4HANA or CONTROL TOWER
+    - NAME: Candidate’s name.
+    - TOWER: Choose ONLY ONE → SAP ARIBA, SAP S/4HANA, or CONTROL TOWER.
+        • CONTROL TOWER → mentions SQL, Python, R, Power BI, Tableau, Looker, Alteryx, ETL, analytics, ML, automation, or data-driven tasks.
+        • SAP S/4HANA → SAP modules (FI, CO, MM, SD, PP, PM, etc.), Fiori, ABAP, or S/4HANA implementations.
+        • SAP ARIBA → procurement, sourcing, supplier, contracts, catalogs, SRM, or Ariba modules.
+        • If both SAP and data skills appear, pick CONTROL TOWER only if analytics/data focus is dominant.
     - PROFILE OVERVIEW: One concise paragraph summarizing the candidate’s experience, skills, expertise, and key achievements. No names or languages.
     - PROFESSIONAL EDUCATION: List only degree names, separated by line breaks. Do NOT repeat information. Do NOT mention High School information.
     - INDUSTRY EXPERIENCE: Line-separated list of industries mapped to Accenture taxonomy:
