@@ -87,8 +87,6 @@ def generate_roles(cv_text):
     - You should write a minimum of 600 characters and a maximum of 1500 characters per role.
     - Focus on responsibilities and achievements that highlight **skills**, **tools**, or **technologies
     - Be concise and professional in tone but more information is better than less.
-        ...
-    - Use **bold** for key words, skills, tools, or technologies.
     - Do NOT use bullets or dashes — only separate lines with line breaks.
     - Exclude company names, institutions, and dates.
     - Keep concise, professional English tone.
@@ -99,7 +97,7 @@ def generate_roles(cv_text):
     """
 
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-5-mini", # You can upgrade to gpt-4o or gpt-5
         messages=[{"role": "user", "content": prompt}],
         temperature=0.15
     )
