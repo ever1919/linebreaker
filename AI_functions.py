@@ -83,7 +83,7 @@ def generate_roles(cv_text):
         Led the development of **data pipelines** using **Python** and **SQL** to streamline data processing, reducing turnaround time by 30%
         Collaborated with cross-functional teams to implement **data visualization** solutions using **Power BI** and **Tableau**, enhancing decision-making capabilities.
 
-    - You should write a minimum of 500 characters and a maximum of 1000 characters per role.
+    - You should write a minimum of 600 characters and a maximum of 1500 characters per role.
     - Focus on responsibilities and achievements that highlight **skills**, **tools**, or **technologies
     - Be concise and professional in tone but more information is better than less.
         ...
