@@ -53,7 +53,7 @@ def generate_sections(cv_text, section_name):
         Resources → Energy, Chemicals, Utilities, Natural Resources
     - FUNCTIONAL EXPERIENCE: Line-separated list of functional expertise or focus areas.
     - CERTIFICATIONS/TRAINING: Line-separated list of certification or training program names.
-    - LANGUAGES: List only the languages and proficiency levels (e.g., English B2, Spanish Native). Each on a separate line. No bold or bullets.
+    - LANGUAGES: List only the languages and proficiency levels (e.g., English B2, Spanish Native). Each on a separate line. No bold or bullets. Use only the Common European Framework of Reference for Languages (A1, A2, B1, B2, C1, C2).
 
     Candidate CV:
     {cv_text}
