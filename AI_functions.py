@@ -78,10 +78,11 @@ def generate_roles(cv_text):
         Responsibility or achievement #1
         Responsibility or achievement #2
 
-    - But look like this example:
+    - But look similar in structure but more detailed to this example. Never copy anything but the structure and always use at least 3 or more lines per role:
         Data Analyst
         Led the development of **data pipelines** using **Python** and **SQL** to streamline data processing, reducing turnaround time by 30%
         Collaborated with cross-functional teams to implement **data visualization** solutions using **Power BI** and **Tableau**, enhancing decision-making capabilities.
+        Implemented **statistical analysis** and **machine learning models** using **R** and **Python** to derive actionable insights from large datasets, improving business strategies.
 
     - You should write a minimum of 600 characters and a maximum of 1500 characters per role.
     - Focus on responsibilities and achievements that highlight **skills**, **tools**, or **technologies
