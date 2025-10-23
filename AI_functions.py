@@ -40,7 +40,7 @@ def generate_sections(cv_text, section_name):
     Section details:
     - NAME: Candidate’s name.
     - TOWER: Choose ONLY ONE → SAP ARIBA, SAP S/4HANA, or CONTROL TOWER.
-        • CONTROL TOWER → mentions SQL, Python, R, Power BI, Tableau, Looker, Alteryx, ETL, analytics, ML, automation, or data-driven tasks.
+        • CONTROL TOWER → mentions SQL, Python, R, Power BI, Tableau, Looker, Alteryx, ETL, analytics, ML, automation, software development or data-driven tasks.
         • SAP S/4HANA → SAP modules (FI, CO, MM, SD, PP, PM, etc.), Fiori, ABAP, or S/4HANA implementations.
         • SAP ARIBA → procurement, sourcing, supplier, contracts, catalogs, SRM, or Ariba modules.
         • If both SAP and data skills appear, pick CONTROL TOWER only if analytics/data focus is dominant.
@@ -63,7 +63,7 @@ def generate_sections(cv_text, section_name):
     response = client.chat.completions.create(
         model="gpt-4o-mini",  # You can upgrade to gpt-4o or gpt-5
         messages=[{"role": "user", "content": prompt}],
-        temperature=0.3
+        temperature=0.1
     )
     return response.choices[0].message.content.strip()
 
@@ -77,6 +77,15 @@ def generate_roles(cv_text):
         Role Title
         Responsibility or achievement #1
         Responsibility or achievement #2
+
+    - But look like this example:
+        Data Analyst
+        Led the development of **data pipelines** using **Python** and **SQL** to streamline data processing, reducing turnaround time by 30%
+        Collaborated with cross-functional teams to implement **data visualization** solutions using **Power BI** and **Tableau**, enhancing decision-making capabilities.
+
+    - You should write a minimum of 240 characters and a maximum of 800 characters per role.
+    - Focus on responsibilities and achievements that highlight **skills**, **tools**, or **technologies
+    - Be concise and professional in tone but more information is better than less.
         ...
     - Use **bold** for key words, skills, tools, or technologies.
     - Do NOT use bullets or dashes — only separate lines with line breaks.
@@ -91,7 +100,7 @@ def generate_roles(cv_text):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}],
-        temperature=0.3
+        temperature=0.15
     )
 
     text = response.choices[0].message.content.strip()
