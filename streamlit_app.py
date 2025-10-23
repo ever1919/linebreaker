@@ -37,12 +37,10 @@ if uploaded_pdf:
     # 🟢 Download section (NO spinner)
     excel_data = st.session_state["excel_data"]
     if isinstance(excel_data, bytes):
-        download_clicked = st.download_button(
+        if st.download_button(
             label="💾 Download Excel",
             data=excel_data,
             file_name="one_pager_summary.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        )
-
-    if download_clicked:
-        st.toast("🚀 Your download has started!")
+        ):
+            st.toast("🚀 Your download has started!")
