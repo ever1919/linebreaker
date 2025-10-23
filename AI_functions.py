@@ -45,7 +45,7 @@ def generate_sections(cv_text, section_name):
         • If both SAP and data skills appear, pick CONTROL TOWER only if analytics/data focus is dominant.
     - PROFILE OVERVIEW: One concise paragraph summarizing the candidate’s experience, skills, expertise, and key achievements. No names or languages.
     - PROFESSIONAL EDUCATION: List only degree names, separated by line breaks. Do NOT repeat information. Do NOT mention High School information.
-    - INDUSTRY EXPERIENCE: Line-separated list of industries mapped to Accenture taxonomy:
+    - INDUSTRY EXPERIENCE: Line-separated list of industries mapped to Accenture taxonomy. Should only be one cell, don't create Industry per line. Map industries as follows:
         Communications, Media & Technology → Communications, Media & Entertainment, High Tech, Software & Platforms
         Financial Services → Banking, Capital Markets, Insurance
         Health & Public Service → Health, Public Service
