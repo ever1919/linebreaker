@@ -136,5 +136,12 @@ def generate_one_pager(cv_path, output_path="one_pager_summary.xlsx"):
 
     # Create DataFrame and export
     df = pd.DataFrame(list(response_dic.items()), columns=["section_name", "output"])
-    df.to_excel(output_path, index=False)
-    print(f"\n✅ One Pager Excel file created successfully: {output_path}")
+    
+       # Write to bytes buffer instead of file
+    buffer = io.BytesIO()
+    with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
+        df.to_excel(writer, index=False)
+    
+    # Get the bytes value
+    buffer.seek(0)
+    return buffer.getvalue()
