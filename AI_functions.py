@@ -60,7 +60,7 @@ def generate_sections(cv_text, section_name):
     """
 
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-5-mini",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.1
     )
