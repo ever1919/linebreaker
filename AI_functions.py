@@ -61,7 +61,7 @@ def generate_sections(cv_text, section_name):
 
     response = client.chat.completions.create(
         model="gpt-5-mini",
-        messages=[{"role": "user", "content": prompt}],
+        messages=[{"role": "user", "content": prompt, "reasoning-effort": "medium"}],
         temperature=0.1
     )
     return response.choices[0].message.content.strip()
@@ -97,7 +97,7 @@ def generate_roles(cv_text):
 
     response = client.chat.completions.create(
         model="gpt-5-mini",
-        messages=[{"role": "user", "content": prompt}],
+        messages=[{"role": "user", "content": prompt, "reasoning-effort": "medium"}],
         temperature=0.15
     )
 
