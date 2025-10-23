@@ -20,7 +20,12 @@ if uploaded_pdf:
     if "excel_data" not in st.session_state:
         with st.spinner("⏳ Generating one-pager summary..."):
             try:
-                excel_data = generate_one_pager(uploaded_pdf)
+                df = generate_one_pager(uploaded_pdf)
+                # Convert DataFrame to Excel bytes
+                output = io.BytesIO()
+                with pd.ExcelWriter(output, engine='openpyxl') as writer:
+                    df.to_excel(writer, index=False)
+                excel_data = output.getvalue()
                 st.session_state["excel_data"] = excel_data
                 st.success("✅ Excel file generated successfully!")
             except Exception as e:
@@ -31,12 +36,13 @@ if uploaded_pdf:
 
     # 🟢 Download section (NO spinner)
     excel_data = st.session_state["excel_data"]
-    download_clicked = st.download_button(
-        label="💾 Download Excel",
-        data=excel_data,
-        file_name="one_pager_summary.xlsx",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    )
+    if isinstance(excel_data, bytes):
+        download_clicked = st.download_button(
+            label="💾 Download Excel",
+            data=excel_data,
+            file_name="one_pager_summary.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
 
     if download_clicked:
         st.toast("🚀 Your download has started!")

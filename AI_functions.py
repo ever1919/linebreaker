@@ -110,7 +110,7 @@ def generate_roles(cv_text):
     return roles[:4]
 
 def generate_one_pager(cv_path, output_path="one_pager_summary.xlsx"):
-    """Generate all sections and export as Excel bytes."""
+    """Generate all sections and return DataFrame."""
     try:
         cv_text = extract_text_from_pdf(cv_path)
 
@@ -136,15 +136,9 @@ def generate_one_pager(cv_path, output_path="one_pager_summary.xlsx"):
         for i, element in enumerate(roles):
             response_dic[f"Role_{i+1}"] = element
 
-        # Create DataFrame and convert to Excel bytes
+        # Create and return DataFrame
         df = pd.DataFrame(list(response_dic.items()), columns=["section_name", "output"])
-        excel_buffer = io.BytesIO()
-        with pd.ExcelWriter(excel_buffer, engine='openpyxl') as writer:
-            df.to_excel(writer, index=False)
-        
-        # Ensure we return bytes
-        excel_buffer.seek(0)
-        return excel_buffer.getvalue()
+        return df
 
     except Exception as e:
         print(f"Error generating one pager: {str(e)}")
