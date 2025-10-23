@@ -110,38 +110,42 @@ def generate_roles(cv_text):
     return roles[:4]
 
 def generate_one_pager(cv_path, output_path="one_pager_summary.xlsx"):
-    """Generate all sections and export as Excel file."""
-    cv_text = extract_text_from_pdf(cv_path)
+    """Generate all sections and export as Excel bytes."""
+    try:
+        cv_text = extract_text_from_pdf(cv_path)
 
-    sections = [
-        "NAME",
-        "TOWER",
-        "PROFILE OVERVIEW",
-        "PROFESSIONAL EDUCATION",
-        "INDUSTRY EXPERIENCE",
-        "FUNCTIONAL EXPERIENCE",
-        "CERTIFICATIONS/TRAINING",
-        "LANGUAGES"
-    ]
+        sections = [
+            "NAME",
+            "TOWER",
+            "PROFILE OVERVIEW",
+            "PROFESSIONAL EDUCATION",
+            "INDUSTRY EXPERIENCE",
+            "FUNCTIONAL EXPERIENCE",
+            "CERTIFICATIONS/TRAINING",
+            "LANGUAGES"
+        ]
+
         # Generate fixed sections
-    print("🔹 Generating: SECTIONS...")
-    sections = generate_sections(cv_text, sections)
-    response_dic = json.loads(sections)
+        print("🔹 Generating: SECTIONS...")
+        sections = generate_sections(cv_text, sections)
+        response_dic = json.loads(sections)
 
-    # Generate dynamic roles
-    print("🔹 Generating: RELEVANT EXPERIENCE (Roles)...")
-    roles = generate_roles(cv_text)
-    for i, element in enumerate(roles):
-        response_dic[f"Role_{i+1}"] = element
+        # Generate dynamic roles
+        print("🔹 Generating: RELEVANT EXPERIENCE (Roles)...")
+        roles = generate_roles(cv_text)
+        for i, element in enumerate(roles):
+            response_dic[f"Role_{i+1}"] = element
 
-    # Create DataFrame and export
-    df = pd.DataFrame(list(response_dic.items()), columns=["section_name", "output"])
-    
-       # Write to bytes buffer instead of file
-    buffer = io.BytesIO()
-    with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
-        df.to_excel(writer, index=False)
-    
-    # Get the bytes value
-    buffer.seek(0)
-    return buffer.getvalue()
+        # Create DataFrame and convert to Excel bytes
+        df = pd.DataFrame(list(response_dic.items()), columns=["section_name", "output"])
+        excel_buffer = io.BytesIO()
+        with pd.ExcelWriter(excel_buffer, engine='openpyxl') as writer:
+            df.to_excel(writer, index=False)
+        
+        # Ensure we return bytes
+        excel_buffer.seek(0)
+        return excel_buffer.getvalue()
+
+    except Exception as e:
+        print(f"Error generating one pager: {str(e)}")
+        raise
