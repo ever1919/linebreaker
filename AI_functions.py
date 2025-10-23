@@ -31,8 +31,7 @@ def generate_sections(cv_text, section_name):
     SECTIONS TO GENERATE: {section_name}
 
     Formatting rules:
-    - Use line breaks to separate each idea or item. Do NOT use bullet symbols or dashes.
-    - Bold **keywords**, skills, or technologies (except for LANGUAGES section).
+    - Use line breaks to separate each idea or item. Do NOT use bullet symbols or dashes
     - Maintain concise, professional tone.
     - Exclude candidate name, company names, institutions, and dates.
     - Assume Graphik 9 font style.
@@ -80,12 +79,12 @@ def generate_roles(cv_text):
 
     - But look similar in structure but more detailed to this example. Never copy anything but the structure and always use at least 3 or more lines per role:
         Data Analyst
-        Led the development of **data pipelines** using **Python** and **SQL** to streamline data processing, reducing turnaround time by 30%
-        Collaborated with cross-functional teams to implement **data visualization** solutions using **Power BI** and **Tableau**, enhancing decision-making capabilities.
-        Implemented **statistical analysis** and **machine learning models** using **R** and **Python** to derive actionable insights from large datasets, improving business strategies.
+        Led the development of data pipelines using Python and SQL to streamline data processing, reducing turnaround time by 30%
+        Collaborated with cross-functional teams to implement data visualization solutions using Power BI and Tableau, enhancing decision-making capabilities.
+        Implemented statistical analysis and machine learning models using R and Python to derive actionable insights from large datasets, improving business strategies.
 
     - You should write a minimum of 600 characters and a maximum of 1500 characters per role.
-    - Focus on responsibilities and achievements that highlight **skills**, **tools**, or **technologies
+    - Focus on responsibilities and achievements that highlight skills, tools, or technologies
     - Be concise and professional in tone but more information is better than less.
     - Do NOT use bullets or dashes — only separate lines with line breaks.
     - Exclude company names, institutions, and dates.
